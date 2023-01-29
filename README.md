@@ -7,4 +7,4 @@ How to setup server on localhost:
 
 How to run server:
 
-1. Run __nodemon index.js__
+- Run __nodemon index.js__ or __node index.js__
