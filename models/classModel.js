@@ -13,6 +13,12 @@ const classSchema = new Schema({
     programId: {
         type: String
     },
+    startTime: {
+        type: Date
+    },
+    endTime: {
+        type: Date
+    },
     userId: {
         type: String,
         required: true
