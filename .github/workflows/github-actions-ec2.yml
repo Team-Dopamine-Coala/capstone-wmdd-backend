@@ -31,5 +31,5 @@ jobs:
           script: |
             cd /home/ec2-user/app
             yarn install
-            export MONGO_URI=${{ secrets.MONGO_URI }}; export PORT=80;
+            export MONGO_URI=$(cat /app/mongo_uri); export PORT=80;
             sudo node index.js
