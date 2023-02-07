@@ -36,4 +36,4 @@ jobs:
           script: |
             cd /home/ec2-user/app
             yarn install
-            node index.js
+            npm start
