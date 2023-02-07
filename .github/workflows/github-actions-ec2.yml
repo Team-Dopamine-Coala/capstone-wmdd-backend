@@ -28,6 +28,7 @@ jobs:
           MONGO_URI: ${{ secrets.MONGO_URI }}
           PORT: 3000
         with:
+          debug: true
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
