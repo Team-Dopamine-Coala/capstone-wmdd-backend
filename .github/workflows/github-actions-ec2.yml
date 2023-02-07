@@ -24,12 +24,15 @@ jobs:
           TARGET: /home/ec2-user/app
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          PORT: 80
         with:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
+          envs: MONGO_URI, PORT
           script: |
             cd /home/ec2-user/app
             yarn install
-            export MONGO_URI=$(cat /app/mongo_uri); export PORT=80;
             sudo node index.js
