@@ -26,7 +26,7 @@ jobs:
         uses: appleboy/ssh-action@master
         env:
           MONGO_URI: ${{ secrets.MONGO_URI }}
-          PORT: 80
+          PORT: 3000
         with:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
@@ -35,4 +35,4 @@ jobs:
           script: |
             cd /home/ec2-user/app
             yarn install
-            sudo node index.js
+            node index.js
