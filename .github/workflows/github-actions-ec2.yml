@@ -28,6 +28,5 @@ jobs:
           SCRIPT_AFTER: |
             cd /home/ec2-user/app
             yarn install
-            kill -9 $(pgrep npm)
             kill -9 $(pgrep node)
-            export MONGO_URI=$(cat /app/mongo_uri); export PORT=3000; nohup npm start & >/dev/null
+            export MONGO_URI=$(cat /app/mongo_uri); export PORT=3000; nohup node index.js > /dev/null 2>&1 &
