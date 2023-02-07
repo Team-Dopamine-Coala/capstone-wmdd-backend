@@ -36,7 +36,7 @@ app.use('/api/student', studentRoutes)
 app.use('/api/users', userRoutes)
 
 app.get('/', (req, res) => {
-    res.status(200).send('OK new process');
+    res.status(200).send('OK');
 });
 
 // Connect to db
