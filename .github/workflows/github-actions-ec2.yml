@@ -28,5 +28,8 @@ jobs:
           SCRIPT_AFTER: |
             cd /home/ec2-user/app
             yarn install
+            echo "yarn install completed"
             kill -9 $(pgrep node)
+            echo "cleaned up previous processes"
             export MONGO_URI=$(cat /app/mongo_uri); export PORT=3000; nohup node index.js > /dev/null 2>&1 &
+            echo "newest commit is running"
