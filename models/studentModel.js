@@ -26,6 +26,9 @@ const studentSchema = new Schema({
     medicalInfo: {
         type: String
     },
+    birthday: {
+        type: Date
+    },
     classId: {
         type: String
     }
