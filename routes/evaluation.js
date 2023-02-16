@@ -12,7 +12,7 @@ const router = express.Router()
 // Get all evaluation by class
 router.get('/:classid', getEvaluationsByClass);
 // Get all evaluation by student
-router.get('/:studentid', getEvaluationsByStudent);
+router.get('/student/:studentid', getEvaluationsByStudent);
 // Create evaluation
 router.post('/', createEvaluation);
 // Update evaluation

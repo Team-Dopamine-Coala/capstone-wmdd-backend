@@ -29,7 +29,7 @@ const studentSchema = new Schema({
     birthday: {
         type: Date
     },
-    classId: {
+    class_id: {
         type: String
     }
 }, {

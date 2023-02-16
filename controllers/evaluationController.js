@@ -21,10 +21,10 @@ const getEvaluationsByStudent = async (req, res) => {
 
 // Create new evaluation
 const createEvaluation = async (req, res) => {
-  const { studentId, skillId, rating, date, classId } = req.body
+  const { studentId, skillId, rating, date, classId, level } = req.body
 
   try {
-      const evaluation = await Evaluation.create({ studentId, skillId, rating, date, classId })
+      const evaluation = await Evaluation.create({ studentId, skillId, rating, date, classId, level })
       res.status(200).json(evaluation)
   } catch (error) {
       res.status(400).json({ error: error.message })

@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const getStudents = async (req, res) => {
   const { class_id } = req.params
 
-  const students = await Student.find({ class_Id: class_id }).sort({createdAt: -1})
+  const students = await Student.find({ class_id: class_id }).sort({createdAt: -1})
 
   res.status(200).json(students)
 }
@@ -18,7 +18,7 @@ const getStudent = async (req, res) => {
       return res.status(404).json({ error: 'No such student' })
   }
 
-  const student = await Student.findOne({ class_Id: class_id, _id: id })
+  const student = await Student.findOne({ class_id: class_id, _id: id })
 
   if (!student) {
       return res.status(404).json({ error: 'No no such student' })
