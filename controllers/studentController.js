@@ -3,9 +3,13 @@ const mongoose = require('mongoose');
 
 // Get all students
 const getStudents = async (req, res) => {
-  const { class_id } = req.params
+  const { classid } = req.params
 
-  const students = await Student.find({ class_id: class_id }).sort({createdAt: -1})
+  const students = await Student.find({ class_id: classid }).sort({createdAt: -1})
+
+  if (!students) {
+    return res.status(404).json({ error: 'No such students' })
+  }
 
   res.status(200).json(students)
 }

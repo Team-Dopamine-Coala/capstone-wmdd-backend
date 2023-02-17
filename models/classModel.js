@@ -8,10 +8,10 @@ const classSchema = new Schema({
         required: true
     },
     startTime: {
-        type: Date
+        type: String
     },
     endTime: {
-        type: Date
+        type: String
     },
     userId: {
         type: String,
