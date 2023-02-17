@@ -7,9 +7,6 @@ const classSchema = new Schema({
         type: String,
         required: true
     },
-    LevelId: {
-        type: Array
-    },
     startTime: {
         type: Date
     },
@@ -21,8 +18,10 @@ const classSchema = new Schema({
         required: true
     },
     classDay: {
-        type: String,
-        required: true
+        type: Array
+    },
+    programId: {
+        type: String
     }
 }, {
     timestamps: true
