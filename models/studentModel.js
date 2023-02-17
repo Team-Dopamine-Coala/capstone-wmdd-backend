@@ -26,7 +26,10 @@ const studentSchema = new Schema({
     medicalInfo: {
         type: String
     },
-    classId: {
+    birthday: {
+        type: Date
+    },
+    class_id: {
         type: String
     }
 }, {
