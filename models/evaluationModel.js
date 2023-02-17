@@ -15,6 +15,12 @@ const evaluationSchema = new Schema({
     },
     date: {
         type: Date
+    },
+    classId: {
+        type: String
+    },
+    level: {
+        type: Number
     }
 }, {
     timestamps: true

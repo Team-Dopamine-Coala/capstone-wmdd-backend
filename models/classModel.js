@@ -7,12 +7,6 @@ const classSchema = new Schema({
         type: String,
         required: true
     },
-    studentList: {
-        type: Array
-    },
-    programId: {
-        type: String
-    },
     startTime: {
         type: Date
     },
@@ -22,6 +16,12 @@ const classSchema = new Schema({
     userId: {
         type: String,
         required: true
+    },
+    classDay: {
+        type: Array
+    },
+    programId: {
+        type: String
     }
 }, {
     timestamps: true

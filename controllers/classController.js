@@ -2,28 +2,32 @@ const Class = require('../models/classModel');
 const mongoose = require('mongoose');
 
 // Get all classes
-const getUser = async (req, res) => {
-  const { id } = req.params
+const getClasses = async (req, res) => {
+  const { userid } = req.params
+
+  const classes = await Class.find({ userId: userid }).sort({createdAt: -1})
+
+  res.status(200).json(classes)
+}
+
+// Get a single class
+const getClass = async (req, res) => {
+  const { userid, id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: 'No such user' })
+      return res.status(404).json({ error: 'No such class' })
   }
 
-  const user = await User.findOne({ _id: id})
+  const classSingle = await Class.findOne({ userId: userid, _id: id })
 
-  if (!user) {
-      return res.status(404).json({ error: 'No such user' })
+  if (!classSingle) {
+      return res.status(404).json({ error: 'No such class' })
   }
 
-  res.status(200).json({
-    _id: user._id,
-    firstname: user.firstname,
-    lastname: user.lastname,
-    email: user.email,
-    password: user.password
-  })
+  res.status(200).json(classSingle)
 }
 
 module.exports = {
-  getUser
+  getClasses,
+  getClass
 }
