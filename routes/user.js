@@ -7,6 +7,7 @@ const {
 } = require('../controllers/userController')
 
 const router = express.Router()
+const { protect } = require('../middleware/authMiddleware')
 
 //Create a new user
 router.post('/', registerUser)
@@ -15,6 +16,6 @@ router.post('/', registerUser)
 router.post('/login', loginUser)
 
 // Get single user
-router.get('/:id', getUser)
+router.get('/:id', protect, getUser)
 
 module.exports = router
