@@ -9,6 +9,9 @@ const skillSchema = new Schema({
     },
     description: {
         type: String
+    },
+    level: {
+        type: Number
     }
 }, {
     timestamps: true
