@@ -12,6 +12,7 @@ const programRoutes = require('./routes/program')
 const skillRoutes = require('./routes/skill')
 const studentRoutes = require('./routes/student')
 const userRoutes = require('./routes/user')
+const pdfRoutes = require('./routes/pdfkit')
 
 // Express App
 const app = express()
@@ -34,6 +35,8 @@ app.use('/api/program', programRoutes)
 app.use('/api/skill', skillRoutes)
 app.use('/api/student', studentRoutes)
 app.use('/api/users', userRoutes)
+
+app.use('/api/pdf', pdfRoutes);
 
 app.get('/', (req, res) => {
     res.status(200).send('OK');
