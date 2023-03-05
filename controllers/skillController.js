@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // Get all skills
 const getSkills = async (req, res) => {
-  const skills = await Attendance.find().sort({createdAt: -1})
+  const skills = await Skill.find().sort({createdAt: -1})
 
   res.status(200).json(skills)
 }

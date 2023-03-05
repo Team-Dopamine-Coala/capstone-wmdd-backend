@@ -12,6 +12,12 @@ const skillSchema = new Schema({
     },
     level: {
         type: Number
+    },
+    programId: {
+        type: String
+    },
+    videoUrl:{
+        type: String
     }
 }, {
     timestamps: true
