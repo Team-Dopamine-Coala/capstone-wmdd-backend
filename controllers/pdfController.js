@@ -1,4 +1,5 @@
 const PDFDocument =  require('pdfkit');
+const emailjs = require('@emailjs/nodejs');
 
 const getPdf = async (req, res, next) => {
   var myDoc = new PDFDocument({bufferPages: true});
@@ -8,11 +9,31 @@ const getPdf = async (req, res, next) => {
   myDoc.on('end', () => {
 
     let pdfData = Buffer.concat(buffers);
-    res.writeHead(200, {
-    'Content-Length': Buffer.byteLength(pdfData),
-    'Content-Type': 'application/pdf',
-    'Content-disposition': 'attachment;filename=test.pdf',})
-    .end(pdfData);
+    // res.writeHead(200, {
+    // 'Content-Length': Buffer.byteLength(pdfData),
+    // 'Content-Type': 'application/pdf',
+    // 'Content-disposition': 'attachment;filename=test.pdf',})
+    // .end(pdfData);
+
+    var templateParams = {
+      to_name: 'Elmer',
+      student_name: 'Check this Elmerini!',
+      message: 'new report',
+    };
+    
+    emailjs
+      .send('service_38kp6pw', 'template_coachcoala', templateParams, {
+        publicKey: 'user_jHZJS1x4gGwhp3Os6sKi3',
+        privateKey: 'a42ebe7bebe2dff7bb8c54a6dd6e7170', // optional, highly recommended for security reasons
+      })
+      .then(
+        function (response) {
+          console.log('SUCCESS!', response.status, response.text);
+        },
+        function (err) {
+          console.log('FAILED...', err);
+        },
+      );
 
 });
 

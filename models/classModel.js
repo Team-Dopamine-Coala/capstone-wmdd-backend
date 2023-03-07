@@ -22,6 +22,9 @@ const classSchema = new Schema({
     },
     programId: {
         type: String
+    },
+    completed: {
+        type: Boolean
     }
 }, {
     timestamps: true
