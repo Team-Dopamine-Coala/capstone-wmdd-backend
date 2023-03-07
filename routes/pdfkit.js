@@ -6,7 +6,9 @@ const {
 
 const router = express.Router()
 
-// Get pdf
-router.get('/', getPdf)
+// Get pdf report student of class
+router.get('/:classid/:studentid', getPdf)
+// Get pdf report of student
+// router.get('/student/:studentid', getPdf)
 
 module.exports = router
