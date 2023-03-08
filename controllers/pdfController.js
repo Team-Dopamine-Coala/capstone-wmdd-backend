@@ -1,9 +1,10 @@
 const PDFDocument =  require('pdfkit');
 const nodemailer = require('nodemailer');
+const moment = require('moment');
 
 // Get related models
-const Student = require('../models/studentModel');
 const Class = require('../models/classModel');
+const Student = require('../models/studentModel');
 const Evaluation = require('../models/evaluationModel');
 const EvaluationComment = require('../models/evaluationCommentModel');
 
@@ -65,7 +66,6 @@ const getPdf = async (req, res, next) => {
 
     // Scale proprotionally to the specified width
   myDoc.image(Images.coalaLogo, {width: 191})
-  .text('Proportional to width');
 
   myDoc.font('Helvetica')
       .fontSize(14)
@@ -73,12 +73,6 @@ const getPdf = async (req, res, next) => {
       .text(`This is probably the second line`)
       .moveDown()
       .text(`There is a space before this line`)
-
-  myDoc
-      .addPage()
-      .text('Check out YK portfolio', 100, 100)
-      .underline(100, 100, 160, 27, { color: 'pink' })
-      .link(100, 100, 160, 27, 'https://yuenkihung.com/');
   
   myDoc.end();
 }
