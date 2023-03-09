@@ -80,6 +80,11 @@ const getPdf = async (req, res, next) => {
       subject: `New evaluation report for ${student.firstname} ${student.lastname}!`,
       text: 'You need HTML to view',
       html: `
+        <p>Howdy, ${student.guardianName}!</p>
+        <p>Attached is the evaluation report of student ${student.firstname} ${student.lastname} for their <strong>${studentClass.title}</strong> class.</p>
+        <p>Have a great day!</p>
+        <hr />
+        <br />
         <table width="700px" cellpadding="0" cellspacing="0" border="0" style="font-family: Helvetica; font-size: 20px; color: black; margin-bottom: 10px;">
           <tr>
             <td><img src="https://res.cloudinary.com/dp53wf7gb/image/upload/v1678314237/coalaLogo_fsaqmu.png" /></td>
