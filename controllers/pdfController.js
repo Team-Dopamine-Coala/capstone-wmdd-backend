@@ -81,7 +81,7 @@ const getPdf = async (req, res, next) => {
       text: 'You need HTML to view',
       html: `
         <p>Howdy, ${student.guardianName}!</p>
-        <p>Attached is the evaluation report for ${student.firstname} ${student.lastname} for his <strong>${studentClass.title}</strong> class.</p>
+        <p>Attached is the evaluation report for student ${student.firstname} ${student.lastname} for their <strong>${studentClass.title}</strong> class.</p>
         <p>Have a great day!</p>
         <hr />
         <br />
