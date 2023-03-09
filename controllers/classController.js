@@ -27,7 +27,28 @@ const getClass = async (req, res) => {
   res.status(200).json(classSingle)
 }
 
+// Update class
+const updateClass = async (req, res) => {
+  const { id } = req.params
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({ error: 'No such class' })
+  }
+
+  const theclass = await Class.findOneAndUpdate({_id: id}, {
+      ...req.body
+  })
+
+  if (!theclass) {
+      return res.status(400).json({ error: 'No such attendance' })
+  }
+
+  res.status(200).json(theclass)
+}
+
+
 module.exports = {
   getClasses,
-  getClass
+  getClass,
+  updateClass
 }
