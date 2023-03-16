@@ -23,7 +23,10 @@ const studentSchema = new Schema({
     guardianNumber: {
         type: String
     },
-    medicalInfo: {
+    allergy: {
+        type: String
+    },
+    condition: {
         type: String
     },
     birthday: {
