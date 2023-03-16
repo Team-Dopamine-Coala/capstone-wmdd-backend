@@ -8,10 +8,10 @@ const classSchema = new Schema({
         required: true
     },
     startTime: {
-        type: String
+        type: Date
     },
     endTime: {
-        type: String
+        type: Date
     },
     userId: {
         type: String,
@@ -25,6 +25,9 @@ const classSchema = new Schema({
     },
     completed: {
         type: Boolean
+    },
+    location: {
+        type: String
     }
 }, {
     timestamps: true
