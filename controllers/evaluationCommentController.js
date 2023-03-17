@@ -22,7 +22,27 @@ const createEvaluationComment = async (req, res) => {
   }
 }
 
+// Update comment
+const updateComment = async (req, res) => {
+  const { id } = req.params
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).json({ error: 'No such comment' })
+  }
+
+  const evaluationComment = await EvaluationComment.findOneAndUpdate({_id: id}, {
+      ...req.body
+  })
+
+  if (!evaluationComment) {
+      return res.status(400).json({ error: 'No such comment' })
+  }
+
+  res.status(200).json(evaluationComment)
+}
+
 module.exports = {
   getEvaluationComment,
-  createEvaluationComment
+  createEvaluationComment,
+  updateComment
 }
