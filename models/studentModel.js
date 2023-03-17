@@ -34,6 +34,9 @@ const studentSchema = new Schema({
     },
     class_id: {
         type: String
+    },
+    evaluated: {
+        type: Number
     }
 }, {
     timestamps: true

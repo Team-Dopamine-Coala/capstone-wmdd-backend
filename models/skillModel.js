@@ -18,6 +18,9 @@ const skillSchema = new Schema({
     },
     videoUrl:{
         type: String
+    },
+    class: {
+        type: String
     }
 }, {
     timestamps: true
