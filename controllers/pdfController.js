@@ -95,7 +95,7 @@ const getPdf = async (req, res, next) => {
         <table width="700px" cellpadding="0" cellspacing="0" border="0" style="font-family: Helvetica; font-size: 18px; color: black; margin-bottom: 50px;">
           <thead style="background-color: #FE7F2D; color: white;">
             <tr>
-              <th style="text-align: left; padding: 5px 15px;">${studentClass.startTime} - ${studentClass.endTime}</th>
+              <th style="text-align: left; padding: 5px 15px;">${moment(studentClass.startTime).format('dddd, MMMM Do, h:mm a')} - ${moment(studentClass.endTime).format('h:mm a')}</th>
             </tr>
           </thead>
           <tbody style="background-color: #FFECE0;">
@@ -176,7 +176,7 @@ const getPdf = async (req, res, next) => {
   myDoc.font('Helvetica-Bold')
       .fontSize(16)
       .fillColor('#FE7F2D')
-      .text(`${studentClass.startTime} - ${studentClass.endTime}`, {
+      .text(`${moment(studentClass.startTime).format('dddd, MMMM Do, h:mm a')} - ${moment(studentClass.endTime).format('h:mm a')}`, {
         underline: true
       })
 
