@@ -2,7 +2,8 @@ const express = require('express')
 
 const {
   getStudents,
-  getStudent
+  getStudent,
+  updateStudent
 } = require('../controllers/studentController')
 
 const router = express.Router()
@@ -11,5 +12,7 @@ const router = express.Router()
 router.get('/:classid', getStudents);
 // Get a single student
 router.get('/:classid/:id', getStudent);
+// Update student
+router.patch('/:id', updateStudent);
 
 module.exports = router
