@@ -22,7 +22,7 @@ const getStudent = async (req, res) => {
       return res.status(404).json({ error: 'No such student' })
   }
 
-  const student = await Student.findOne({ class_id: class_id, _id: id })
+  const student = await Student.findById(id)
 
   if (!student) {
       return res.status(404).json({ error: 'No no such student' })
