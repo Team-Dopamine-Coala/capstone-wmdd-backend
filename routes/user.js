@@ -3,7 +3,8 @@ const express = require('express')
 const {
   registerUser,
   loginUser,
-  getUser
+  getUser,
+  comfirmUser
 } = require('../controllers/userController')
 
 const router = express.Router()
@@ -17,5 +18,8 @@ router.post('/login', loginUser)
 
 // Get single user
 router.get('/:id', protect, getUser)
+
+//Compare Password in biometrics for Student info
+router.post('/bio/:id', comfirmUser)
 
 module.exports = router

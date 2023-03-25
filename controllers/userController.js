@@ -13,7 +13,8 @@ const registerUser = async (req, res) => {
    return res.status(400).json({error: 'Please input all fields'})
   }
 
-  //check if the user already exists
+  //find this user from userID
+  // const userExists = await User.findOne({email})
   const userExists = await User.findOne({email})
 
   if(userExists){
@@ -96,8 +97,28 @@ const generateToken = (id) => {
   })
 }
 
+//=========KEIKO=============
+// //Compare password in Biometrics for access Student info
+const comfirmUser = asyncHandler(async (req, res) => {
+  const { id } = req.body
+
+  //Look for user via userID
+  const user = await User.findOne({ _id: id})
+
+  if(user && (await bcrypt.compare(password, user.password))){
+    return res.json({
+      _id: user.id,
+    })
+  } else {
+    return res.status(400).json({error: `Pwssword is invalid`})
+  }
+})
+//=========
+
+
 module.exports = {
   getUser,
   loginUser,
-  registerUser
+  registerUser,
+  comfirmUser
 }
