@@ -21,6 +21,9 @@ const skillSchema = new Schema({
     },
     class: {
         type: String
+    },
+    photoUrl:{
+        type: String
     }
 }, {
     timestamps: true
