@@ -60,6 +60,7 @@ const loginUser = asyncHandler(async (req, res) => {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
+      photoUrl: user.photoUrl,
       token: generateToken(user._id)
     })
   } else {
@@ -86,6 +87,7 @@ const getUser = asyncHandler(async (req, res) => {
     firstname: user.firstName,
     lastname: user.lastName,
     email: user.email,
+    photoUrl: user.photoUrl,
     password: user.password
   })
 })
@@ -97,28 +99,8 @@ const generateToken = (id) => {
   })
 }
 
-//=========KEIKO=============
-// //Compare password in Biometrics for access Student info
-const comfirmUser = asyncHandler(async (req, res) => {
-  const { id } = req.body
-
-  //Look for user via userID
-  const user = await User.findOne({ _id: id})
-
-  if(user && (await bcrypt.compare(password, user.password))){
-    return res.json({
-      _id: user.id,
-    })
-  } else {
-    return res.status(400).json({error: `Pwssword is invalid`})
-  }
-})
-//=========
-
-
 module.exports = {
   getUser,
   loginUser,
-  registerUser,
-  comfirmUser
+  registerUser
 }
