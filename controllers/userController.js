@@ -13,7 +13,8 @@ const registerUser = async (req, res) => {
    return res.status(400).json({error: 'Please input all fields'})
   }
 
-  //check if the user already exists
+  //find this user from userID
+  // const userExists = await User.findOne({email})
   const userExists = await User.findOne({email})
 
   if(userExists){
@@ -59,6 +60,7 @@ const loginUser = asyncHandler(async (req, res) => {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
+      photoUrl: user.photoUrl,
       token: generateToken(user._id)
     })
   } else {
@@ -85,6 +87,7 @@ const getUser = asyncHandler(async (req, res) => {
     firstname: user.firstName,
     lastname: user.lastName,
     email: user.email,
+    photoUrl: user.photoUrl,
     password: user.password
   })
 })
