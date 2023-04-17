@@ -69,8 +69,8 @@ const getPdf = async (req, res, next) => {
       port: 587,
       secure: false,
       auth: {
-        user: 'elmz.arnsi@gmail.com',
-        pass: 'HvqN2OKLzXc67kwP'
+        user: 'elmerbalbin@outlook.com',
+        pass: 'xsmtpsib-93bfe4b008e68f29e526e7c56836212745f616a085b3bf3af418bd06f24e43dd-gxkCT0qvFs3zrDQV'
       }
     })
 
